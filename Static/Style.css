@@ -1,0 +1,53 @@
+body {
+  background: #fff0f6;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #ec407a, #8e24aa);
+}
+
+.navbar .navbar-brand {
+  font-weight: 700;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #8e24aa;
+  border: none;
+}
+.btn-primary:hover { background-color: #6a1b9a; }
+
+.btn-success {
+  background-color: #ec407a;
+  border: none;
+}
+.btn-success:hover { background-color: #ad1457; }
+
+.btn-danger {
+  background-color: #d81b60;
+  border: none;
+}
+.btn-danger:hover { background-color: #ad1457; }
+
+.card {
+  border-radius: 12px;
+}
+
+.card-title a {
+  color: #8e24aa;
+  font-weight: bold;
+  text-decoration: none;
+}
+.card-title a:hover {
+  color: #d81b60;
+}
+
+.table-dark {
+  background: linear-gradient(90deg, #ec407a, #8e24aa);
+  color: #fff;
+}
+
+/* filtros */
+form input, form select { border-radius: 8px; }
+form button { border-radius: 8px; font-weight: bold; }
