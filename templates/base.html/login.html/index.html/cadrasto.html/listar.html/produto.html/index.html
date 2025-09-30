@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Início{% endblock %}
+{% block content %}
+<div class="text-center">
+  <h2 class="mb-4 text-primary">Bem-vindo à Pink&Purple Store!</h2>
+  <p class="lead">Gerencie seu estoque de roupas com estilo 🌸💜</p>
+  <a href="{{ url_for('cadastro') }}" class="btn btn-success btn-lg m-2">➕ Cadastrar Produto</a>
+  <a href="{{ url_for('listar') }}" class="btn btn-primary btn-lg m-2">📋 Listar Produtos</a>
+</div>
+{% endblock %}
