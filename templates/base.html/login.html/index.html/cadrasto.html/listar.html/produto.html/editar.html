@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Editar Produto{% endblock %}
+{% block content %}
+<h2 class="mb-4 text-primary">Editar Produto</h2>
+<form method="POST" enctype="multipart/form-data" class="card p-4 shadow">
+  <div class="row g-3">
+    <div class="col-md-4">
+      <label class="form-label">ID</label>
+      <input type="text" name="id" class="form-control" value="{{ produto.id }}" required>
+    </div>
+    <div class="col-md-8">
+      <label class="form-label">Nome da Peça</label>
+      <input type="text" name="nome" class="form-control" value="{{ produto.nome }}" required>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Categoria</label>
+      <input type="text" name="categoria" class="form-control" value="{{ produto.categoria }}" required>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Tamanho</label>
+      <input type="text" name="tamanho" class="form-control" value="{{ produto.tamanho }}" required>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Quantidade</label>
+      <input type="number" name="quantidade" class="form-control" value="{{ produto.quantidade }}" required>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Preço de Compra</label>
+      <input type="number" step="0.01" name="preco_compra" class="form-control" value="{{ produto.preco_compra }}" required>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Preço de Venda</label>
+      <input type="number" step="0.01" name="preco_venda" class="form-control" value="{{ produto.preco_venda }}" required>
+    </div>
+    <div class="col-md-12">
+      <label class="form-label">Fornecedor</label>
+      <input type="text" name="fornecedor" class="form-control" value="{{ produto.fornecedor }}" required>
+    </div>
+    <div class="col-md-12">
+      <label class="form-label">Nova Imagem (opcional)</label>
+      <input type="file" name="imagem" class="form-control">
+      {% if produto.imagem %}
+        <p class="mt-2">Imagem atual:</p>
+        <img src="{{ url_for('static', filename='uploads/' ~ produto.imagem) }}" style="max-height:150px;" class="rounded">
+      {% endif %}
+    </div>
+  </div>
+  <div class="mt-4">
+    <button type="submit" class="btn btn-success">Salvar Alterações</button>
+    <a href="{{ url_for('produto', indice=indice) }}" class="btn btn-secondary">Cancelar</a>
+  </div>
+</form>
+{% endblock %}
+
