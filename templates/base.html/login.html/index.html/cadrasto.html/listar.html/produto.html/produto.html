@@ -1,39 +1,21 @@
 {% extends "base.html" %}
-{% block title %}Detalhes{% endblock %}
+{% block title %}Produto{% endblock %}
 {% block content %}
-<div class="row justify-content-center">
-  <div class="col-md-8">
-    <div class="card shadow">
-      {% if produto.imagem %}
-        <img src="{{ url_for('static', filename='uploads/' ~ produto.imagem) }}" class="card-img-top" alt="{{ produto.nome }}">
-      {% else %}
-        <img src="https://via.placeholder.com/600x400?text=Sem+Imagem" class="card-img-top">
-      {% endif %}
-      <div class="card-body">
-        <h3 class="card-title">{{ produto.nome }}</h3>
-        <p>
-          <strong>ID:</strong> {{ produto.id }} <br>
-          <strong>Categoria:</strong> {{ produto.categoria }} <br>
-          <strong>Tamanho:</strong> {{ produto.tamanho }} <br>
-          <strong>Quantidade:</strong> {{ produto.quantidade }} <br>
-          <strong>Preço de Compra:</strong> R$ {{ "%.2f"|format(produto.preco_compra) }} <br>
-          <strong>Preço de Venda:</strong> R$ {{ "%.2f"|format(produto.preco_venda) }} <br>
-          <strong>Fornecedor:</strong> {{ produto.fornecedor }}
-        </p>
-      </div>
-      <div class="card-footer d-flex justify-content-between">
-        <a href="{{ url_for('listar') }}" class="btn btn-secondary">⬅ Voltar</a>
-        <div>
-          <a href="{{ url_for('editar', indice=indice) }}" class="btn btn-warning">✏️ Editar</a>
-          <a href="{{ url_for('remover', indice=indice) }}" 
-             class="btn btn-danger"
-             onclick="return confirm('Deseja realmente remover {{ produto.nome }}?')">
-             🗑 Remover
-          </a>
-        </div>
-      </div>
+<h2>Cadastrar Produto</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label>Nome do Produto</label>
+        <input type="text" name="nome" class="form-control" required>
     </div>
-  </div>
-</div>
+    <div class="mb-3">
+        <label>Preço</label>
+        <input type="number" step="0.01" name="preco" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Quantidade</label>
+        <input type="number" name="quantidade" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar Produto</button>
+</form>
 {% endblock %}
 
