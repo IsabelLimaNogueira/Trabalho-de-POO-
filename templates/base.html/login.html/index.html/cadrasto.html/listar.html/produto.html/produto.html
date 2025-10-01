@@ -7,29 +7,33 @@
       {% if produto.imagem %}
         <img src="{{ url_for('static', filename='uploads/' ~ produto.imagem) }}" class="card-img-top" alt="{{ produto.nome }}">
       {% else %}
-        <img src="https://via.placeholder.com/600x400?text=Sem+Imagem" class="card-img-top" alt="sem imagem">
+        <img src="https://via.placeholder.com/600x400?text=Sem+Imagem" class="card-img-top">
       {% endif %}
       <div class="card-body">
-        <h3 class="card-title text-primary">{{ produto.nome }}</h3>
-        <p class="card-text">
-          <strong>ID:</strong> {{ produto.id }}<br>
-          <strong>Categoria:</strong> {{ produto.categoria }}<br>
-          <strong>Tamanho:</strong> {{ produto.tamanho }}<br>
-          <strong>Quantidade:</strong> {{ produto.quantidade }}<br>
-          <strong>Compra:</strong> R$ {{ "%.2f"|format(produto.preco_compra) }}<br>
-          <strong>Venda:</strong> R$ {{ "%.2f"|format(produto.preco_venda) }}<br>
+        <h3 class="card-title">{{ produto.nome }}</h3>
+        <p>
+          <strong>ID:</strong> {{ produto.id }} <br>
+          <strong>Categoria:</strong> {{ produto.categoria }} <br>
+          <strong>Tamanho:</strong> {{ produto.tamanho }} <br>
+          <strong>Quantidade:</strong> {{ produto.quantidade }} <br>
+          <strong>Preço de Compra:</strong> R$ {{ "%.2f"|format(produto.preco_compra) }} <br>
+          <strong>Preço de Venda:</strong> R$ {{ "%.2f"|format(produto.preco_venda) }} <br>
           <strong>Fornecedor:</strong> {{ produto.fornecedor }}
         </p>
       </div>
       <div class="card-footer d-flex justify-content-between">
         <a href="{{ url_for('listar') }}" class="btn btn-secondary">⬅ Voltar</a>
         <div>
-          <a href="{{ url_for('editar', indice=indice) }}" class="btn btn-primary me-2">✏ Editar</a>
-          <a href="{{ url_for('remover', indice=indice) }}" class="btn btn-danger"
-             onclick="return confirm('Deseja realmente remover {{ produto.nome }}?')">🗑 Remover</a>
+          <a href="{{ url_for('editar', indice=indice) }}" class="btn btn-warning">✏️ Editar</a>
+          <a href="{{ url_for('remover', indice=indice) }}" 
+             class="btn btn-danger"
+             onclick="return confirm('Deseja realmente remover {{ produto.nome }}?')">
+             🗑 Remover
+          </a>
         </div>
       </div>
     </div>
   </div>
 </div>
 {% endblock %}
+
