@@ -1,57 +1,21 @@
 {% extends "base.html" %}
 {% block title %}Cadastro{% endblock %}
 {% block content %}
-<h2>✨ Cadastrar Produto</h2>
-<form method="POST" enctype="multipart/form-data">
-  <div class="row">
-    <div class="col-md-6 mb-3">
-      <label class="form-label">ID</label>
-      <input type="text" name="id" class="form-control" required>
+<h2>Cadastro de Usuário</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label>Nome</label>
+        <input type="text" name="nome" class="form-control" required>
     </div>
-    <div class="col-md-6 mb-3">
-      <label class="form-label">Nome</label>
-      <input type="text" name="nome" class="form-control" required>
+    <div class="mb-3">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" required>
     </div>
-  </div>
-  
-  <div class="row">
-    <div class="col-md-4 mb-3">
-      <label class="form-label">Categoria</label>
-      <input type="text" name="categoria" class="form-control">
+    <div class="mb-3">
+        <label>Senha</label>
+        <input type="password" name="senha" class="form-control" required>
     </div>
-    <div class="col-md-4 mb-3">
-      <label class="form-label">Tamanho</label>
-      <input type="text" name="tamanho" class="form-control">
-    </div>
-    <div class="col-md-4 mb-3">
-      <label class="form-label">Quantidade</label>
-      <input type="number" name="quantidade" class="form-control" required>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6 mb-3">
-      <label class="form-label">Preço de Compra</label>
-      <input type="number" step="0.01" name="preco_compra" class="form-control" required>
-    </div>
-    <div class="col-md-6 mb-3">
-      <label class="form-label">Preço de Venda</label>
-      <input type="number" step="0.01" name="preco_venda" class="form-control" required>
-    </div>
-  </div>
-
-  <div class="mb-3">
-    <label class="form-label">Fornecedor</label>
-    <input type="text" name="fornecedor" class="form-control">
-  </div>
-
-  <div class="mb-3">
-    <label class="form-label">Imagem</label>
-    <input type="file" name="imagem" class="form-control">
-  </div>
-
-  <button type="submit" class="btn btn-primary">Cadastrar</button>
-  <a href="{{ url_for('listar') }}" class="btn btn-secondary">Cancelar</a>
+    <button type="submit" class="btn btn-success">Cadastrar</button>
 </form>
 {% endblock %}
 
