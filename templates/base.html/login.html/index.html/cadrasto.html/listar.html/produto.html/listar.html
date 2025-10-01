@@ -1,40 +1,24 @@
 {% extends "base.html" %}
-{% block title %}Produtos{% endblock %}
+{% block title %}Lista de Produtos{% endblock %}
 {% block content %}
-<h2>👗 Produtos em Estoque</h2>
-
-<div class="row">
-  {% for p in produtos %}
-  <div class="col-md-4 mb-4">
-    <div class="card shadow">
-      {% if p.imagem %}
-        <img src="{{ url_for('static', filename='uploads/' ~ p.imagem) }}" class="card-img-top" alt="{{ p.nome }}">
-      {% else %}
-        <img src="https://via.placeholder.com/300x200?text=Sem+Imagem" class="card-img-top" alt="sem imagem">
-      {% endif %}
-      <div class="card-body">
-        <h5 class="card-title">
-          <a href="{{ url_for('produto', indice=loop.index0) }}" class="text-decoration-none text-primary">
-            {{ p.nome }}
-          </a>
-        </h5>
-        <p class="card-text">
-          Categoria: {{ p.categoria }}<br>
-          Tamanho: {{ p.tamanho }}<br>
-          Quantidade: {{ p.quantidade }}<br>
-          Preço: R$ {{ "%.2f"|format(p.preco_venda) }}
-        </p>
-      </div>
-      <div class="card-footer d-flex justify-content-between">
-        <a href="{{ url_for('editar', indice=loop.index0) }}" class="btn btn-warning">✏️ Editar</a>
-        <a href="{{ url_for('remover', indice=loop.index0) }}" 
-           class="btn btn-danger"
-           onclick="return confirm('Remover {{ p.nome }}?')">
-           🗑 Remover
-        </a>
-      </div>
-    </div>
-  </div>
-  {% endfor %}
-</div>
+<h2>Lista de Produtos</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in produtos %}
+        <tr>
+            <td>{{ p.nome }}</td>
+            <td>R$ {{ "%.2f"|format(p.preco) }}</td>
+            <td>{{ p.quantidade }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
+
