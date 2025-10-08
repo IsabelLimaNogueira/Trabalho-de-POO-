@@ -46,11 +46,14 @@
   </div>
 
   <div class="mb-3">
+    {% if produto.imagem %}
+    <img src="{{ url_for('static', filename='uploads/' + produto.imagem) }}" alt="Imagem" width="100">
+    {% endif %}
     <label class="form-label">Nova Imagem</label>
     <input type="file" name="imagem" class="form-control">
   </div>
 
   <button type="submit" class="btn btn-primary">Salvar</button>
-  <a href="{{ url_for('produto', indice=indice) }}" class="btn btn-secondary">Cancelar</a>
+  <a href="{{ url_for('detalhes_produto', indice=indice) }}" class="btn btn-secondary">Cancelar</a>
 </form>
 {% endblock %}
